@@ -36,22 +36,6 @@ io.sockets.on("connection", function(socket) {
   socket.on("disconnect", function() {
       delete player_list[ player.login_id ];
    });
-
-  // socket.on( "start", function () {
-  // setInterval( function () {
-  //   for (var i = 0; i < player_list.length; i ++) {
-  //     if (io.sockets.connected[player_list[i].id]) {
-  //       io.sockets.connected[player_list[i].id].emit('click', (frameCount + player_list[i].loginNumber) % 120);
-  //     }
-  //   }
-
-  //   if (frameCount % 119 == 0 && frameCount != 0) {
-  //     frameCount = 0;
-  //   } else {
-  //     frameCount += 24;
-  //   }
-  // }, fps);
-  // })
   
   oscServer.on("clock", function (msg, rinfo) { 
     for (var i = 0; i < player_list.length; i ++) {
@@ -67,7 +51,7 @@ io.sockets.on("connection", function(socket) {
     }
   });
 
-  loginNumber += 1;
+  loginNumber = player_list.length;
 });
 
 
